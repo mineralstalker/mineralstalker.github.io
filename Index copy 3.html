@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .grid-container {
+      width: 100vw;
+      margin: 0 auto;
+      height: 100vh;
+      display: flex;
+      transition: 1s ease;
+    }
+
+    .sidebar {
+      width: 30%;
+      height: 100%;
+      background-color: #54a;
+      transition: 1s ease;
+      position: relative;
+    }
+
+    .main-content {
+      width: 100%;
+      height: 100%;
+      background-color: #ccc;
+      transition: 1s ease;
+    }
+
+    .main-content_large {
+      width: 100%;
+    }
+
+    .sidebar_small {
+      width: 5%;
+    }
+
+    button {
+      position: absolute;
+      border: none;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.3);
+      left: 100%;
+      top: 2rem;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="grid-container">
+      <div class="sidebar">
+        <button>M</button>
+      </div>
+      <div class="main-content">
+        <script>
+
+          var map = L.map('map', {
+            zoom: 14,
+            center: new L.latLng(39.539, -107.885),
+          }),
+      
+            geojsonmonitortOpts = {
+              pointToLayer: function (feature, latlng) {
+                var monitorIcon = L.icon({
+                  iconSize: [27, 27],
+                  iconAnchor: [13, 27],
+                  popupAnchor: [1, -24],
+                  iconUrl: 'images/blue-circle.png',
+      
+                });
+      
+                return L.marker(latlng, { icon: monitorIcon });
+              },
+              onEachFeature: function (feature, layer) {
+                layer.bindPopup('<br/><b>Monitor Name:</b> &nbsp;' + feature.properties.name +
+                  '<br><b>County and State:</b> &nbsp;' + feature.properties.territory +
+                  '<br><b>Date Offline:</b> &nbsp;' + feature.properties.date_online +
+                  '&nbsp;<b>Date Offline:</b> &nbsp;' + feature.properties.date_offline +
+                  '<br/>' + '<br/>' + "<table>" +
+                  '<tr>' +
+                  '<th class="text-center"><b>Data Table</b></th>' +
+                  '<th class="text-center">Concentration Average</th>' +
+                  '<th class="text-center">Weather</th>' +
+                  '<th class="text-center">Graphs</th>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<td>Daily</td>' +
+                  '<td>Other</td>' +
+                  '<td>' + feature.properties.tempatures_gra + '</td>' +
+                  '<td>' + feature.properties.grafana + '</td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<td>Weakly</td>' +
+                  '<td>Other</td>' +
+                  '<td>' + feature.properties.humity_gra + '</td>' +
+                  '<td>Other</td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<td>Monthly</td>' +
+                  '<td>Other</td>' +
+                  '<td>Other</td>' +
+                  '<td>Other</td>' +
+                  '</tr>' +
+                  '<tr>' +
+                  '<td>Yearly</td>' +
+                  '<td>Other</td>' +
+                  '<td>Other</td>' +
+                  '<td>' + feature.properties.graphs + '</td>' +
+                  '</tr>' +
+                  "</table>"
+                );
+              }
+            };
+      
+          var monitorlayer = L.layerGroup([
+            L.geoJson(Samplers, geojsonmonitortOpts)
+          ])
+            .addTo(map);
+      
+          geojsonsourceOpts = {
+            pointToLayer: function (feature, latlng) {
+              var sourceIcon = L.icon({
+                iconSize: [27, 27],
+                iconAnchor: [13, 27],
+                popupAnchor: [1, -24],
+                iconUrl: 'images/orange-circle.png',
+      
+              });
+      
+              return L.marker(latlng, { icon: sourceIcon });
+            },
+            onEachFeature: function (feature, layer) {
+              layer.bindPopup('<br/><b>Name:</b> &nbsp;' + feature.properties.name +
+                '<br><b>Source Type:</b> &nbsp;' + feature.properties.variety +
+                '<br><b>Status:</b> &nbsp;' + feature.properties.status +
+                '<br><b>Operator:</b> &nbsp;' + feature.properties.operator +
+                '<br><b>Spud Date:</b> &nbsp;' + feature.properties.date_spud +
+                '&nbsp;<b>Shut-in Date:</b> &nbsp;' + feature.properties.date_shut_in +
+                '<br><b>Location:</b> &nbsp;' + feature.properties.location +
+                '<br/>' + '<br/>' + "<table>" +
+                '<tr>' +
+                '<th class="text-center">Casing Depths</th>' +
+                '<th class="text-center">Leak Reports</th>' +
+                '<th class="text-center">Other</th>' +
+                '<tr>' +
+                '<td>' + feature.properties.casing_depths + '</td>' +
+                '<td>' + feature.properties.leak_reports + '</td>' +
+                '<td>' + feature.properties.other + '</td>' +
+                "</table>"
+              );
+            }
+          };
+      
+          var sourcelayer = L.layerGroup([
+            L.geoJson(hydrocarbon_wells, geojsonsourceOpts)
+          ])
+            .addTo(map);
+      
+          function style(feature) {
+            return {
+              color: "black",
+              weight: 2,
+              opacity: 0.7,
+              fill: true,
+              fillColor: "maroon",
+              fillOpacity: 0.3,
+              smoothFactor: 0.5,
+              dashArray: '5,5',
+            };
+          }
+      
+          function onEachFeature(feature, layer) {
+            // feature.properties.popupContent is required for popup
+            if (feature.properties && feature.properties.popupContent) {
+              layer.bindPopup('<br/><b>Name:</b> &nbsp;' + feature.properties.name +
+                '<br><b>Address:</b> &nbsp;' + feature.properties.address +
+                '<br><b>Date Opened:</b> &nbsp;' + feature.properties.date_open +
+                '&nbsp;<b>Date Closed:</b> &nbsp;' + feature.properties.date_shut_down +
+                '<br/>' + '<br/>' + "<table>" +
+                '<tr>' +
+                '<th class="text-center">data</th>' +
+                '<th class="text-center">data</th>' +
+                '<th class="text-center">data</th>' +
+                '<tr>' +
+                '<td>N/A</td>' +
+                '<td>N/A</td>' +
+                '<td>N/A</td>' +
+                "</table>");
+            }
+          }
+      
+          var landfillmarkers = L.geoJson(landfills, {
+            style: style,
+            onEachFeature: onEachFeature
+          }).addTo(map);
+      
+          L.control.search({
+            layer: monitorlayer,
+            initial: false,
+            propertyName: 'name',
+            buildTip: function (text, val) {
+              var type = val.layer.feature.properties.amenity;
+              return '<a href="#" class="' + type + '">' + text + '<b>' + type + '</b></a>';
+            }
+          })
+            .addTo(map);
+      
+        </script>
+      
+        <div id="basemaps-wrapper" class="leaflet-bar">
+          <select name="basemaps" id="basemaps" onChange="changeBasemap(basemaps)">
+            <option value="Topographic">Topographic</option>
+            <option value="Streets">Streets</option>
+            <option value="Imagery">Imagery</option>
+            <option value="ImageryClarity" selected>Imagery (Clarity)</option>
+            <option value="ImageryFirefly">Imagery (Firefly)</option>
+            <option value="Gray">Gray</option>
+            <option value="DarkGray">Dark Gray</option>
+            <option value="ShadedRelief">Shaded Relief</option>
+          </select>
+        </div>
+        </head>
+      
+      </body>
+      
+      <script type="text/javascript">
+      
+        //create esri layers and selector
+      
+        var layer = L.esri.basemapLayer('Imagery').addTo(map);
+        var layerLabels = L.esri.basemapLayer('ImageryLabels');
+        map.addLayer(layerLabels);
+      
+        function setBasemap(basemap) {
+          if (layer) {
+            map.removeLayer(layer);
+          }
+      
+          layer = L.esri.basemapLayer(basemap);
+      
+          map.addLayer(layer);
+      
+          if (layerLabels) {
+            map.removeLayer(layerLabels);
+          }
+      
+          if (basemap === 'ShadedRelief' ||
+            basemap === 'Oceans' ||
+            basemap === 'Gray' ||
+            basemap === 'DarkGray' ||
+            basemap === 'Terrain'
+          ) {
+            layerLabels = L.esri.basemapLayer(basemap + 'Labels');
+            map.addLayer(layerLabels);
+          } else if (basemap.includes('Imagery')) {
+            layerLabels = L.esri.basemapLayer('ImageryLabels');
+            map.addLayer(layerLabels);
+          }
+        }
+      
+        function changeBasemap(basemaps) {
+          var basemap = basemaps.value;
+          setBasemap(basemap);
+        }
+      
+      
+        var overlayMaps = {
+          "Monitors": monitorlayer,
+          "Hydrocarbon Production": sourcelayer,
+          "Landfills": landfillmarkers
+        };
+      
+        L.control.layers(null, overlayMaps).addTo(map);
+      
+      </script>
+      </div>
+    </div>
+
+    <script>
+      const sidebar = document.querySelector(".sidebar");
+      const mainContent = document.querySelector(".main-content");
+      document.querySelector("button").onclick = function () {
+        sidebar.classList.toggle("sidebar_small");
+        mainContent.classList.toggle("main-content_large");
+      };
+    </script>
+  </body>
+</html>
