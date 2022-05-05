@@ -35,7 +35,7 @@ var Samplers = {
       properties: {
         "@id": "node/560446888",
         amenity: "Sampler",
-        name: "Sampler 2",
+        name: "Sampler 7",
       },
       geometry: {
         type: "Point",
