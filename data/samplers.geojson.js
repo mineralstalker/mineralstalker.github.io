@@ -47,7 +47,7 @@ var Samplers = {
       id: "node/574326909",
       properties: {
         "@id": "node/574326909",
-        amenity: "Sampler",
+        amenity: "Quartz",
         name: "Sampler 3",
       },
       geometry: {

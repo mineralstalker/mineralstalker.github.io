@@ -92,6 +92,18 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<div id="basemaps-wrapper" class="leaflet-bar">
+					<select name="basemaps" id="basemaps" onChange="changeBasemap(basemaps)">
+						<option value="Topographic">Topographic</option>
+						<option value="Streets">Streets</option>
+						<option value="Imagery">Imagery</option>
+						<option value="ImageryClarity" selected>Imagery (Clarity)</option>
+						<option value="ImageryFirefly">Imagery (Firefly)</option>
+						<option value="Gray">Gray</option>
+						<option value="DarkGray">Dark Gray</option>
+						<option value="ShadedRelief">Shaded Relief</option>
+					</select>
+				</div>
             </div>
         </div>
     </div>
@@ -269,21 +281,6 @@
 			.addTo(map);
 
 	</script>
-
-	<div id="basemaps-wrapper" class="leaflet-bar">
-		<select name="basemaps" id="basemaps" onChange="changeBasemap(basemaps)">
-			<option value="Topographic">Topographic</option>
-			<option value="Streets">Streets</option>
-			<option value="Imagery">Imagery</option>
-			<option value="ImageryClarity" selected>Imagery (Clarity)</option>
-			<option value="ImageryFirefly">Imagery (Firefly)</option>
-			<option value="Gray">Gray</option>
-			<option value="DarkGray">Dark Gray</option>
-			<option value="ShadedRelief">Shaded Relief</option>
-		</select>
-	</div>
-	</head>
-
 </body>
 
 <script type="text/javascript">
