@@ -255,21 +255,10 @@
 			}
 		}
 
-		var landfillmarkers = L.geoJson(landfills, {
+		var boundarymarkers = L.geoJson(boundaries, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
-
-		L.control.search({
-			layer: monitorlayer,
-			initial: false,
-			propertyName: 'name',
-			buildTip: function (text, val) {
-				var type = val.layer.feature.properties.amenity;
-				return '<a href="#" class="' + type + '">' + text + '<b>' + type + '</b></a>';
-			}
-		})
-			.addTo(map);
 
 	</script>
 </body>
@@ -314,16 +303,32 @@
 		setBasemap(basemap);
 	}
 
-
-	var overlayMaps = {
+	var markeroverlays = {
 		"Monitors": monitorlayer,
 		"Hydrocarbon Production": sourcelayer,
-		"Landfills": landfillmarkers
+		"Collection Boundary": boundarymarkers
 	};
 
-	L.control.layers(null, overlayMaps).addTo(map);
+	L.control.layers(null, markeroverlays).addTo(map);
 
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
+
+	var searchLayers = L.layerGroup([
+		L.geoJson(Samplers),
+		L.geoJson(hydrocarbon_wells),
+		L.geoJson(boundaries)
+	]);
+
+	L.control.search({
+			layer: searchLayers,
+			initial: false,
+			propertyName: 'name',
+			buildTip: function (text, val) {
+				var type = val.layer.feature.properties.amenity;
+				return '<a href="#" class="' + type + '">' + text + '<b>' + type + '</b></a>';
+			}
+		})
+			.addTo(map);
 
 </script>
 
