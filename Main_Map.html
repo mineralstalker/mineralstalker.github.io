@@ -83,6 +83,38 @@
 
             <div class="sidebar-pane" id="settings">
                 <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<div>
+					<br>
+					<table class="settingstable" style="width:100%"> 
+						<tr> 
+						<th class="text-center"><b>Map Backgrounds</b></th> 
+						<th class="text-center">Graphs</th>
+						</tr>
+						<tr>
+						<td>Daily</td>
+						<td>Other</td>
+						</tr>
+						<tr>
+						<td>Weakly</td>
+						<td>Other</td>
+						</tr>
+						<tr>
+						<td>Monthly</td>
+						<td>Other</td>
+						</tr>
+						<tr>
+						<td>Yearly</td>
+						<td> + feature.properties.graphs + </td>
+						</tr>
+						</table>
+				</div>
+
+				<div>
+					<script>
+						L.control.polylineMeasure(options).addTo(map);
+					</script>
+				</div>
+	
 				<div id="basemaps-wrapper" class="leaflet-bar">
 					<select name="basemaps" id="basemaps" onChange="changeBasemap(basemaps)">
 						<option value="Topographic">Topographic</option>
@@ -303,20 +335,11 @@
 		setBasemap(basemap);
 	}
 
-	var markeroverlays = {
-		"Monitors": monitorlayer,
-		"Hydrocarbon Production": sourcelayer,
-		"Collection Boundary": boundarymarkers
-	};
-
-	L.control.layers(null, markeroverlays).addTo(map);
-
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 	var searchLayers = L.layerGroup([
-		L.geoJson(Samplers),
-		L.geoJson(hydrocarbon_wells),
-		L.geoJson(boundaries)
+		L.geoJson(Samplers, geojsonmonitortOpts),
+		L.geoJson(hydrocarbon_wells, geojsonsourceOpts)
 	]);
 
 	L.control.search({
@@ -329,6 +352,14 @@
 			}
 		})
 			.addTo(map);
+
+		var markeroverlays = {
+			"Monitors": monitorlayer,
+			"Hydrocarbon Production": sourcelayer,
+			"Collection Boundary": boundarymarkers
+		};
+
+	L.control.layers(null, markeroverlays).addTo(map);
 
 </script>
 
