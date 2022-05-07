@@ -251,8 +251,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet-sidebar-v2@3.1.1/js/leaflet-sidebar.min.js"></script>
-    <script id="rendered-js">
+    <script id="rendered-js"></script>
+    <script src="data/samplers.geojson.js"></script>
+    <script src="data/landfills.geojson.js"></script>
+    <script src="data/hydrocarbon.geojson.js"></script>
+    <script>
       //Init Overlays
+
       var overlays = {};
 
       //Init BaseMaps
@@ -298,7 +303,7 @@
       var mapOptions = {
         zoomControl: false,
         attributionControl: false,
-        center: [-29.0529434318608, 152.01910972595218],
+        center: [39.539, -107.885],
         zoom: 10,
         layers: [basemaps.OpenStreetMaps],
       };
@@ -317,7 +322,7 @@
         .sidebar({
           autopan: false,
           container: "sidebar",
-          position: "right",
+          position: "left",
         })
         .addTo(map);
 
@@ -328,6 +333,7 @@
           collapsed: false,
         })
         .addTo(map);
+
       var oldLayerControl = layerControl.getContainer();
       var newLayerControl = $("#layercontrol");
       newLayerControl.append(oldLayerControl);
