@@ -87,8 +87,8 @@ leaflet-marker-icon {
   color: #fff;
 }
 
-.hydrocarbon_wells.search-tip b,
-.hydrocarbon_wells.leaflet-marker-icon {
+.privatesites.search-tip b,
+.privatesites.leaflet-marker-icon {
   background: #66f;
 }
 .search-tip {

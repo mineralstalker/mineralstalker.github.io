@@ -144,9 +144,9 @@
 	<script src="src/LeafletPlayback.js"></script>
 	<script src="src/time-slider.js"></script>
 	<script src="src/slider_controls.js"></script>
-	<script src="data/samplers.geojson.js"></script>
-	<script src="data/landfills.geojson.js"></script>
-	<script src="data/hydrocarbon.geojson.js"></script>
+	<script src="data/publicsites.geojson.js"></script>
+	<script src="data/searchareas.geojson.js"></script>
+	<script src="data/privatesites.geojson.js"></script>
 	<script src="src/demo-tracks.js"></script>
 	<script src="js/leaflet-sidebar.js"></script>
 
@@ -211,7 +211,7 @@
 			};
 
 		var monitorlayer = L.layerGroup([
-			L.geoJson(Samplers, geojsonmonitortOpts)
+			L.geoJson(publicsites, geojsonmonitortOpts)
 		])
 			.addTo(map);
 
@@ -250,7 +250,7 @@
 		};
 
 		var sourcelayer = L.layerGroup([
-			L.geoJson(hydrocarbon_wells, geojsonsourceOpts)
+			L.geoJson(privatesites, geojsonsourceOpts)
 		])
 			.addTo(map);
 
@@ -287,7 +287,7 @@
 			}
 		}
 
-		var boundarymarkers = L.geoJson(boundaries, {
+		var boundarymarkers = L.geoJson(searcharea, {
 			style: style,
 			onEachFeature: onEachFeature
 		}).addTo(map);
@@ -338,8 +338,8 @@
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 	var searchLayers = L.layerGroup([
-		L.geoJson(Samplers, geojsonmonitortOpts),
-		L.geoJson(hydrocarbon_wells, geojsonsourceOpts)
+		L.geoJson(publicsites, geojsonmonitortOpts),
+		L.geoJson(privatesites, geojsonsourceOpts)
 	]);
 
 	L.control.search({

@@ -436,7 +436,7 @@
       };
 
       var sourcelayer = L.layerGroup([
-        L.geoJson(hydrocarbon_wells, geojsonsourceOpts),
+        L.geoJson(privatesites, geojsonsourceOpts),
       ]).addTo(map);
 
       function style(feature) {
@@ -480,7 +480,7 @@
         }
       }
 
-      var boundarymarkers = L.geoJson(boundaries, {
+      var boundarymarkers = L.geoJson(searcharea, {
         style: style,
         onEachFeature: onEachFeature,
       }).addTo(map);
@@ -489,7 +489,7 @@
     <script>
       var searchLayers = L.layerGroup([
         L.geoJson(Samplers, geojsonmonitortOpts),
-        L.geoJson(hydrocarbon_wells, geojsonsourceOpts),
+        L.geoJson(privatesites, geojsonsourceOpts),
       ]);
 
       L.control
