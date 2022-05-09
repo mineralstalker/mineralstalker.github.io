@@ -149,17 +149,19 @@
 	<script src="data/privatesites.geojson.js"></script>
 	<script src="src/demo-tracks.js"></script>
 	<script src="js/leaflet-sidebar.js"></script>
+	<script src="js/markers.js"></script>
+
 
 	<script>
 
 		var map = L.map('map', {
 			zoom: 14,
 			center: new L.latLng(39.539, -107.885),
-		}),
+		});
 
-			geojsonmonitortOpts = {
+			geojsonpublicOpts = {
 				pointToLayer: function (feature, latlng) {
-					var monitorIcon = L.icon({
+					var publicIcon = L.icon({
 						iconSize: [27, 27],
 						iconAnchor: [13, 27],
 						popupAnchor: [1, -24],
@@ -167,7 +169,7 @@
 
 					});
 
-					return L.marker(latlng, { icon: monitorIcon });
+					return L.marker(latlng, { icon: publicIcon });
 				},
 				onEachFeature: function (feature, layer) {
 					layer.bindPopup('<br/><b>Monitor Name:</b> &nbsp;' + feature.properties.name +
@@ -210,8 +212,8 @@
 				}
 			};
 
-		var monitorlayer = L.layerGroup([
-			L.geoJson(publicsites, geojsonmonitortOpts)
+		var publiclayer = L.layerGroup([
+			L.geoJson(publicsites, geojsonpublicOpts)
 		])
 			.addTo(map);
 
@@ -338,7 +340,7 @@
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 
 	var searchLayers = L.layerGroup([
-		L.geoJson(publicsites, geojsonmonitortOpts),
+		L.geoJson(publicsites, geojsonpublicOpts),
 		L.geoJson(privatesites, geojsonsourceOpts)
 	]);
 
@@ -354,7 +356,7 @@
 			.addTo(map);
 
 		var markeroverlays = {
-			"Monitors": monitorlayer,
+			"Monitors": publiclayer,
 			"Hydrocarbon Production": sourcelayer,
 			"Collection Boundary": boundarymarkers
 		};

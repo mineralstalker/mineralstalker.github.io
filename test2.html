@@ -315,16 +315,16 @@
       //Render Main Map
       var map = L.map("map", mapOptions);
 
-      geojsonmonitortOpts = {
+      geojsonpublicOpts = {
         pointToLayer: function (feature, latlng) {
-          var monitorIcon = L.icon({
+          var publicIcon = L.icon({
             iconSize: [27, 27],
             iconAnchor: [13, 27],
             popupAnchor: [1, -24],
             iconUrl: "../images/blue-circle.png",
           });
 
-          return L.marker(latlng, { icon: monitorIcon });
+          return L.marker(latlng, { icon: publicIcon });
         },
         onEachFeature: function (feature, layer) {
           layer.bindPopup(
@@ -382,11 +382,11 @@
         },
       };
 
-      var monitorlayer = L.layerGroup([
-        L.geoJson(Samplers, geojsonmonitortOpts),
+      var publiclayer = L.layerGroup([
+        L.geoJson(Samplers, geojsonpublicOpts),
       ]).addTo(map);
 
-      geojsonsourceOpts = {
+      geojsonprivateOpts = {
         pointToLayer: function (feature, latlng) {
           var sourceIcon = L.icon({
             iconSize: [27, 27],
@@ -436,7 +436,7 @@
       };
 
       var sourcelayer = L.layerGroup([
-        L.geoJson(privatesites, geojsonsourceOpts),
+        L.geoJson(privatesites, geojsonprivateOpts),
       ]).addTo(map);
 
       function style(feature) {
@@ -488,8 +488,8 @@
 
     <script>
       var searchLayers = L.layerGroup([
-        L.geoJson(Samplers, geojsonmonitortOpts),
-        L.geoJson(privatesites, geojsonsourceOpts),
+        L.geoJson(Samplers, geojsonpublicOpts),
+        L.geoJson(privatesites, geojsonprivateOpts),
       ]);
 
       L.control
@@ -513,7 +513,7 @@
         .addTo(map);
 
       var overlays = {
-        Monitors: monitorlayer,
+        Monitors: publiclayer,
         "Hydrocarbon Production": sourcelayer,
         "Collection Boundary": boundarymarkers,
       };
