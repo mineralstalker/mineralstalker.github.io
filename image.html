@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .pick {
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 0;
+      height: 0;
+    }
+
+    .pick[title] {
+      width: 50px;
+      height: 50px;
+    }
+    .pick[title="rock"] {
+      background-image: url("https://svgshare.com/i/_8h.svg");
+    }
+    .pick[title="paper"] {
+      background-image: url("https://svgshare.com/i/_9g.svg");
+    }
+    .pick[title="scissors"] {
+      background-image: url("https://svgshare.com/i/_9X.svg");
+    }
+
+    /* ignore this */
+
+    img[src="images/my_paper.png"] {
+      background-image: url("https://svgshare.com/i/_9g.svg");
+
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    img[src="images/rock.png"] {
+      background-image: url("https://svgshare.com/i/_8h.svg");
+
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    img[src="images/scissors.png"] {
+      background-image: url("https://svgshare.com/i/_9X.svg");
+
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  </style>
+  <body>
+    <h1>Rock, Paper, Scissors Game</h1>
+    <div id="button">
+      <button id="btn-start">Press to start timer</button>
+    </div>
+    <div class="player_blocks">
+      <div id="icon_1">
+        <button class="btn-start" onclick="rock_logo();">
+          <img src="images/rock.png" height="50px" width="50px" />
+        </button>
+        <button class="btn-start" onclick="paper_logo();">
+          <img src="images/my_paper.png" height="50px" width="50px" />
+        </button>
+        <button class="btn-start" onclick="scissors_logo();">
+          <img src="images/scissors.png" height="50px" width="50px" />
+        </button>
+      </div>
+
+      <div id="player_1_container">
+        <div id="player_1" class="pick"></div>
+        <div id="counter_1">
+          <div class="counter"></div>
+          <div class="counter"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+
+      <div id="time">
+        <p id="timer">10</p>
+      </div>
+
+      <div id="player_2_container">
+        <div id="player_2" class="pick"></div>
+        <div id="counter_2">
+          <div class="counter"></div>
+          <div class="counter"></div>
+          <div class="counter"></div>
+        </div>
+      </div>
+
+      <div id="icon_2">
+        <button class="btn-start" onclick="player_2_rock();">
+          <img src="images/rock.png" height="50px" width="50px" />
+        </button>
+        <button class="btn-start" onclick="player_2_paper()">
+          <img src="images/my_paper.png" height="50px" width="50px" />
+        </button>
+        <button class="btn-start" onclick="player_2_scissors()">
+          <img src="images/scissors.png" height="50px" width="50px" />
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    function player_1(type) {
+      document.getElementById("player_1").title = type;
+    }
+
+    function player_2(type) {
+      document.getElementById("player_2").title = type;
+    }
+
+    //functions for displaying images when clicking on player 1 icons
+    function rock_logo() {
+      player_1("rock");
+    }
+
+    function paper_logo() {
+      player_1("paper");
+    }
+
+    function scissors_logo() {
+      player_1("scissors");
+    }
+
+    //Functions for displaying images when clicking on player 2 icons
+    function player_2_rock() {
+      player_2("rock");
+    }
+
+    function player_2_paper() {
+      player_2("paper");
+    }
+
+    function player_2_scissors() {
+      player_2("scissors");
+    }
+
+    //timer works properly now
+    const timerText = document.getElementById("timer");
+    const btnStart = document.getElementById("btn-start");
+
+    let count = 10;
+    let intervalId;
+
+    btnStart.addEventListener("click", function () {
+      intervalId = setInterval(function () {
+        count -= 1;
+        timerText.textContent = count;
+        if (count == 0) {
+          clearInterval(intervalId);
+        }
+      }, 1000);
+    });
+  </script>
+</html>
