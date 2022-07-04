@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lithology Descriptor</title>
+    <link rel="stylesheet" href="Files/Descriptor.css" />
+  </head>
+  <body>
+    <script src="Files/Lithologies.js"></script>
+
+    <textarea id="sample"></textarea>
+
+    <button id="to" onclick="CopyToTextarea(this)"> to</button>
+
+    <button id="comma" onclick="CopyToTextarea(this)">,</button>
+
+    <button id="peroid" onclick="CopyToTextarea(this)">.</button>
+
+    <button id="copier">Copy Description</button>
+
+    <button id="clear">Clear Description</button>
+
+    <div id="image_container">
+          <div id="info_player" class="pick"></div>
+      </div>
+
+    <div class="selector">
+      <div class="lithology_options">
+        <h1>Step (1) Lithologies</h1>
+        <button id="shale" class="lithology" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> SH:</button>
+        <button id="siltstone" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> SLTST:</button>
+        <button id="sandstone" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> SS:</button>
+        <button id="limestone" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> LS:</button>
+        <br>
+        <button id="dolomite" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> DOL:</button>
+        <button id="gypsum" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> GYP:</button>
+        <button id="anhydrite" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> ANHY:</button>
+        <button id="evaporite" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> EVP:</button>
+        <br>
+        <button id="no_sample" class="lithology" onclick="rock_logo();" ondblclick="CopyToTextarea(this)"> No Sample:</button>
+      </div>
+      <div class="color_options">
+        <h1>Step (2) Colors</h1>
+        <button id="color" class="color_white" title="White" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> wh</button>
+        <button id="color" class="color_off_white" title="Off White" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> off wh</button>
+        <button id="color" class="color_v_lightGrey" title="Very Light Grey" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> v ltgy</button>
+        <button id="color" class="color_lightGrey" title="Light Grey" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> ltgy</button>
+        <button id="color" class="color_medGrey" title="Medium Grey" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> medgy</button>
+        <button id="color" class="color_Grey" title="Grey" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> gy</button>
+        <button id="color" class="color_drkGrey" title="Dark Grey" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> drkgy</button>
+        <button id="color" class="color_gyshblk" title="Greyish Black" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> gyshblk</button>
+        <button id="color" class="color_black" title="Black" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> blk</button>
+        <button id="color" class="color_crm" title="Cream" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> crm</button>
+        <button id="color" class="color_tan" title="Tan" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> tan</button>
+        <button id="color" class="color_ltbrn" title="Light Brown" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> lt brn</button>
+        <button id="color" class="color_brn" title="Brown" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> brn</button>
+        <button id="color" class="color_green" title="Greenish Yellow" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> Gnsh Yel</button>
+        <button id="color" class="color_white" title="White" onclick="shale_logo();" ondblclick="CopyToTextarea(this)"> Wh</button>
+        <button id="color" class="color_lightGrey" title="White" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">ltGy </button>
+        <button id="color" class="color_black" title="White" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Blk </button>
+        <button id="color" class="color_redish_brown" title="White" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Rdsh Brn </button>
+        <button id="color" class="color_dyel" title="White" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">dull Yel </button>
+        <br>
+        <button id="color" class="color_redish_brown" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Rdsh Brn, </button>
+        <button id="color" class="color_dyel" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">dull Yel, </button>
+        <button id="color" class="color_byel" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">bri Yel, </button>
+        <button id="color" class="color_blue" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Bl, </button>
+        <button id="color" class="color_green" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Gnsh Yel, </button>
+        <button id="color" class="color_white" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Wh, </button>
+        <button id="color" class="color_lightGrey" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">ltGy, </button>
+        <button id="color" class="color_black" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Blk, </button>
+        <button id="color" class="color_redish_brown" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Rdsh Brn, </button>
+        <button id="color" class="color_dyel" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">dull Yel, </button>
+        <button id="color" class="color_byel" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">bri Yel, </button>
+        <button id="color" class="color_blue" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Bl, </button>
+        <button id="color" class="color_green" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Gnsh Yel, </button>
+        <button id="color" class="color_white" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Wh, </button>
+        <button id="color" class="color_lightGrey" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">ltGy, </button>
+        <button id="color" class="color_black" onclick="shale_logo();" ondblclick="CopyToTextarea(this)">Blk, </button>
+      </div>
+      <div class="texture_options">
+        <h1>Step (3) Shape or Texture</h1>
+        <button id="txblky" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)"> blky</button>
+        <button id="txsbblky" class="textop" onclick="sbblk_logo();" ondblclick="CopyToTextarea(this)"> sb blky</button>
+        <button id="txplty" class="textop" onclick="plty_logo();" ondblclick="CopyToTextarea(this)"> plty</button>
+        <button id="txsbplty" class="textop" onclick="plty_logo();" ondblclick="CopyToTextarea(this)"> sb plty</button>
+        <button id="txsplin" class="textop" onclick="splt_logo();" ondblclick="CopyToTextarea(this)"> splin</button>
+        <button id="txflk" class="textop" onclick="flk_logo();" ondblclick="CopyToTextarea(this)"> flk</button>
+        <br>
+        <button id="wlrnd" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)"> wl rnd</button>
+        <button id="rnd" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)"> rnd </button>
+        <button id="sbrnd" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)"> sb rnd</button>
+        <button id="sbang" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)"> sb ang</button>
+        <button id="ang" class="textop" onclick="ang_logo();" ondblclick="CopyToTextarea(this)"> ang</button>
+        <button id="vang" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)"> v ang</button>
+        <br>
+        <button id="txtsm" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)">sm</button>
+        <button id="txslty" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)">slty</button>
+        <button id="txgran" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)">gran</button>
+        <button id="txvf" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)"> v f</button>
+        <button id="txf" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)">f</button>
+        <button id="txmed" class="textop" onclick="blk_logo();" ondblclick="CopyToTextarea(this)">med</button>
+      </div>
+      <div class="grain_options">
+        <h1>Step (4) Grain or Crystaline Stucture</h1>
+        <button id="strvfg" class="struop" ondblclick="CopyToTextarea(this)"> v f gr</button>
+        <button id="strfg" class="struop" ondblclick="CopyToTextarea(this)"> f gr</button>
+        <button id="strmedg" class="struop" ondblclick="CopyToTextarea(this)"> med gr</button>
+        <button id="strcrsg" class="struop" ondblclick="CopyToTextarea(this)"> crs gr</button>
+        <button id="strvcrsg" class="struop" ondblclick="CopyToTextarea(this)"> v crs gr</button>
+        <br>
+        <button id="strmicro" class="struop" ondblclick="CopyToTextarea(this)"> microxln</button>
+        <button id="strvfxln" class="struop" ondblclick="CopyToTextarea(this)"> v f xln</button>
+        <button id="strfxln" class="struop" ondblclick="CopyToTextarea(this)"> f xln</button>
+        <button id="strmedxln" class="struop" ondblclick="CopyToTextarea(this)"> med xln</button>
+        <button id="strcrsxln" class="struop" ondblclick="CopyToTextarea(this)"> crs xln</button>
+        <br>
+        <button id="strvwlcon" class="struop" ondblclick="CopyToTextarea(this)"> v wl consol</button>
+        <button id="strwlcon" class="struop" ondblclick="CopyToTextarea(this)"> wl consol</button>
+        <button id="strmodcon" class="struop" ondblclick="CopyToTextarea(this)"> mod consol</button>
+        <button id="strpcon" class="struop" ondblclick="CopyToTextarea(this)">p consol</button>
+        <button id="struncon" class="struop" ondblclick="CopyToTextarea(this)">uncons</button>
+      </div>
+      <div class="hardness_options">
+        <h1>Step (5) Hardness</h1>
+        <button ondblclick="CopyToTextarea(this)">Soft</button>
+        <button ondblclick="CopyToTextarea(this)">Brittle</button>
+        <button ondblclick="CopyToTextarea(this)">Firm</button>
+        <button ondblclick="CopyToTextarea(this)">Hard</button>
+      </div>
+      <div class="cement_options">
+        <h1>Step (6) Cementation and Porosity</h1>
+        <button ondblclick="CopyToTextarea(this)">calc</button>
+        <button ondblclick="CopyToTextarea(this)">arg</button>
+        <br>
+        <button ondblclick="CopyToTextarea(this)">cmt</button>
+        <button ondblclick="CopyToTextarea(this)">mtx</button>
+        <br>
+        <button ondblclick="CopyToTextarea(this)">tt</button>
+        <button ondblclick="CopyToTextarea(this)">pp</button>
+        <button ondblclick="CopyToTextarea(this)">por</button>
+      </div>
+      <div class="mineral_options">
+        <h1>Step (7) Trace Minerals or Fossils</h1>
+          <button class="btn-start" onclick="rock_logo();" ondblclick="CopyToTextarea(this)">Pyrite</button>
+          <button class="btn-start" onclick="rock_logo();" ondblclick="CopyToTextarea(this)">Calcite</button>
+          <button class="btn-start" onclick="scissors_logo();" ondblclick="CopyToTextarea(this)">Oolite</button>
+        </button>
+        <br>
+        <button ondblclick="CopyToTextarea(this)">tr </button>
+        <button ondblclick="CopyToTextarea(this)">rr </button>
+        <button ondblclick="CopyToTextarea(this)">mod </button>
+        <button ondblclick="CopyToTextarea(this)">abnt </button>
+      </div>
+      <div class="hydrocarbon_options">
+        <h1>Step (8) Mineral Fluorescence and Hydrocarbon Show</h1>
+        <button ondblclick="CopyToTextarea(this)">5%</button>
+        <button ondblclick="CopyToTextarea(this)">10%</button>
+        <button ondblclick="CopyToTextarea(this)">15%</button>
+        <button ondblclick="CopyToTextarea(this)">20%</button>
+        <br>
+        <button ondblclick="CopyToTextarea(this)">Dull</button>
+        <button ondblclick="CopyToTextarea(this)">Bright</button>
+        <br>
+        <button ondblclick="CopyToTextarea(this)">Weak</button>
+        <button ondblclick="CopyToTextarea(this)">Strong</button>
+        <button ondblclick="CopyToTextarea(this)">Flash</button>
+        <br>
+        <button ondblclick="CopyToTextarea(this)">Streaming</button>
+        <button ondblclick="CopyToTextarea(this)">Blooming</button>
+      </div>
+    </div>
+
+    <script src="Files/Descriptor.js"></script>
+
+  </body>
+</html>
