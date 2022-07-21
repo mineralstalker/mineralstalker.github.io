@@ -1,0 +1,616 @@
+#sample {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    width: 650px;
+    height: 300px;
+}
+
+#to {
+    position: absolute;
+    bottom: 280px;
+    right: 730px;
+    width: 30px;
+    height: 20px;
+    font-size: x-small;
+}
+
+#comma {
+    position: absolute;
+    bottom: 280px;
+    right: 700px;
+    width: 30px;
+    height: 20px;
+    font-size: x-small;
+}
+
+#peroid {
+    position: absolute;
+    bottom: 260px;
+    right: 730px;
+    width: 30px;
+    height: 20px;
+    font-size: x-small;
+}
+
+#copier {
+    position: absolute;
+    bottom: 70px;
+    right: 700px;
+    width: 60px;
+    height: 40px;
+    font-size: x-small;
+}
+
+#clear {
+    position: absolute;
+    bottom: 10px;
+    right: 700px;
+    width: 60px;
+    height: 40px;
+    font-size: x-small;
+}
+
+#image_container {
+    position: absolute;
+    align-items: center;
+    top: 10px;
+    right: 30px;
+    max-width: 700px;
+    max-height: 400px;
+  }
+
+.selector {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 99%;
+    padding: 5px 0;
+    background: #004134;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: bottom 0.4s;
+  }
+
+  .lithology_options {
+    text-align: center;
+  }
+
+  .lithology {
+    height: 30px;
+    width: 80px;
+    background-color: lightgrey;
+    color: transparent;
+    font-size: 10pt;
+    outline: black;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    position: relative;
+  }
+
+  #shale {
+    background-image: url(./images/shalebtn.png);
+  }
+
+  #siltstone {
+    background-image: url(./images/siltbtn.png);
+  }
+
+  #sandstone {
+    background-image: url(./images/Sandstonebtn.png);
+  }
+
+  #limestone {
+    background-image: url(./images/limebtn.png);
+  }
+
+  #dolomite {
+    background-image: url(./images/dolbtn.png);
+  }
+
+  #gypsum {
+    background-image: url(./images/gypbtn.png);
+  }
+
+  #evaporite {
+    background-image: url(./images/evpbtn.png);
+  }
+
+  h1 {
+    font-size: medium;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: medium;
+    text-align: center;
+  }
+
+  /* Color Options */
+
+  .color_options {
+    text-align: center;
+  }
+
+  #color {
+    width: 15px;
+    height: 30px;
+    display: inline-flex;
+  }
+
+  .color_white {
+    width: 15px;
+    height: 30px;
+    background: white;
+    color: transparent;
+  }
+
+  .color_off_white {
+    width: 15px;
+    height: 30px;
+    background: #F8F0E3;
+    color: transparent;
+  }
+
+  .color_v_lightGrey {
+    width: 15px;
+    height: 30px;
+    background:   #e5e7e9;
+    color: transparent;
+  }
+
+  .color_lightGrey {
+    width: 15px;
+    height: 30px;
+    background: lightgray;
+    color: transparent;
+  }
+
+  .color_medGrey {
+    width: 15px;
+    height: 30px;
+    background:   #bdc3c7;
+    color: transparent;
+  }
+
+  .color_Grey {
+    width: 15px;
+    height: 30px;
+    background:  #909497;
+    color: transparent;
+  }
+
+  .color_drkGrey {
+    width: 15px;
+    height: 30px;
+    background:  #626567;
+    color: transparent;
+  }
+
+  .color_gyshblk {
+    width: 15px;
+    height: 30px;
+    background:  #212f3d;
+    color: transparent;
+  }
+
+  .color_black {
+    width: 15px;
+    height: 30px;
+    background: black;
+    color: transparent;
+  }
+
+  .color_crm {
+    width: 15px;
+    height: 30px;
+    background: #FFFDD0;
+    color: transparent;
+  }
+
+  .color_tan {
+    width: 15px;
+    height: 30px;
+    background: tan;
+    color: transparent;
+  }
+
+  .color_ltbrn {
+    width: 15px;
+    height: 30px;
+    background: #C19A6B;
+    color: transparent;
+  }
+
+  .color_brn {
+    width: 15px;
+    height: 30px;
+    background: #6F4E37;
+    color: transparent;
+  }
+
+  .color_redish_brown {
+    width: 15px;
+    height: 30px;
+    background: brown;
+    color: transparent;
+  }
+
+  .color_dyel {
+    width: 15px;
+    height: 30px;
+    background: lightgoldenrodyellow;
+    color: transparent;
+  }
+
+  .color_byel {
+    width: 15px;
+    height: 30px;
+    background: yellow;
+    color: transparent;
+  }
+
+  .color_blue {
+    width: 15px;
+    height: 30px;
+    background: lightskyblue;
+    color: transparent;
+  }
+
+  .color_green {
+    width: 15px;
+    height: 30px;
+    background: lightgreen;
+    color: transparent;
+  }
+
+  /* Shape or Texture */
+
+  .texture_options {
+    text-align: center;
+  }
+
+  .textop {
+    height: 25px;
+    width: 55px;
+    background-color: lightgrey;
+    color: transparent;
+    font-size: 10pt;
+    outline: black;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    position: relative;
+  }
+
+  #wlrnd {
+    background-image: url(./images/wlrnd.png);
+  }
+
+  #rnd {
+    background-image: url(./images/rnd.png);
+  }
+
+  #sbrnd {
+    background-image: url(./images/sbrnd.png);
+  }
+
+  #sbang {
+    background-image: url(./images/sbang.png);
+  }
+
+  #ang {
+    background-image: url(./images/ang.png);
+  }
+
+  #txblky {
+    background-image: url(./images/txblky.png);
+  }
+
+  #txsbblky {
+    background-image: url(./images/txsbblky.png);
+  }
+
+  #txplty {
+    background-image: url(./images/txplty.png);
+  }
+
+  #txsbplty {
+    background-image: url(./images/txsbplty.png);
+  }
+
+  #txsplin {
+    background-image: url(./images/txspilt.png);
+  }
+
+  #txflk {
+    background-image: url(./images/txfky.png);
+  }
+
+  
+  /* Structure*/
+
+  .grain_options {
+    text-align: center;
+  }
+
+  .struop {
+    height: 25px;
+    width: 55px;
+    background-color: lightgrey;
+    color: transparent;
+    font-size: 10pt;
+    outline: black;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    position: relative;
+  }
+
+  #strvfg {
+    background-image: url(./images/strutvfgrn.png);
+  }
+
+  #strfg {
+    background-image: url(./images/strutfgrn.png);
+  }
+
+  #strmedg {
+    background-image: url(./images/strutmedgrn.png);
+  }
+
+  #strcrsg {
+    background-image: url(./images/strutcrsgrn.png);
+  }
+
+  #strvcrsg {
+    background-image: url(./images/strutvcrsgrn.png);
+  }
+
+  #strmicro {
+    background-image: url(./images/strutmicroxln.png);
+  }
+
+  #strvfxln {
+    background-image: url(./images/strutvfxln.png);
+  }
+
+  #strfxln {
+    background-image: url(./images/strutfxln.png);
+  }
+
+  #strmedxln {
+    background-image: url(./images/strutmedxln.png);
+  }
+
+  #strcrsxln {
+    background-image: url(./images/strutcrsxln.png);
+  }
+
+  #strvwlcon {
+    background-image: url(./images/txfky.png);
+  }
+
+  #strwlcon {
+    background-image: url(./images/txplty.png);
+  }
+
+  #strmodcon {
+    background-image: url(./images/txsbplty.png);
+  }
+
+  #strpcon {
+    background-image: url(./images/txspilt.png);
+  }
+
+  #struncon {
+    background-image: url(./images/txfky.png);
+  }
+
+  /* hardness*/
+
+  .hardness_options {
+    text-align: center;
+  }
+
+  .hrdop {
+    height: 25px;
+    width: 55px;
+    background-color: lightgrey;
+    color: black;
+    font-size: 10pt;
+    outline: black;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    position: relative;
+  }
+
+  #strvfg {
+    background-image: url(./images/strutvfgrn.png);
+  }
+
+  #strfg {
+    background-image: url(./images/strutfgrn.png);
+  }
+
+  #strmedg {
+    background-image: url(./images/strutmedgrn.png);
+  }
+
+  #strcrsg {
+    background-image: url(./images/strutcrsgrn.png);
+  }
+
+  #strvcrsg {
+    background-image: url(./images/strutvcrsgrn.png);
+  }
+
+  #strmicro {
+    background-image: url(./images/strutmicroxln.png);
+  }
+
+  #strvfxln {
+    background-image: url(./images/strutvfxln.png);
+  }
+
+  #strfxln {
+    background-image: url(./images/strutfxln.png);
+  }
+
+  #strmedxln {
+    background-image: url(./images/strutmedxln.png);
+  }
+
+  #strcrsxln {
+    background-image: url(./images/strutcrsxln.png);
+  }
+
+  #strvwlcon {
+    background-image: url(./images/txfky.png);
+  }
+
+  #strwlcon {
+    background-image: url(./images/txplty.png);
+  }
+
+  #strmodcon {
+    background-image: url(./images/txsbplty.png);
+  }
+
+  #strpcon {
+    background-image: url(./images/txspilt.png);
+  }
+
+  #struncon {
+    background-image: url(./images/txfky.png);
+  }
+
+  /* cement*/
+
+  .cement_options {
+    text-align: center;
+  }
+
+  .cmtop {
+    height: 25px;
+    width: 55px;
+    background-color: lightgrey;
+    color: black;
+    font-size: 10pt;
+    outline: black;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    position: relative;
+  }
+
+  /* image stuff*/
+
+  .pick {
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 0;
+      height: 0;
+    }
+
+    .pick[title] {
+        position: absolute;
+        align-items: center;
+        top: 0px;
+        right: 0px;
+        width: 700px;
+        height: 400px;
+    }
+
+    /* lithology images*/
+
+    .pick[title="shaledis"] {
+        background-image: url("./images/shale_discribtion.png");
+    }
+
+    /* text images*/
+
+    .pick[title="blkdis"] {
+        background-image: url("./images/blky_description.png");
+    }
+
+    .pick[title="sbblkdis"] {
+        background-image: url("./images/sbblky_description.png");
+    }
+
+    .pick[title="angdis"] {
+        background-image: url("./images/ang_description.png");
+    }
+
+    .pick[title="pltydis"] {
+        background-image: url("./images/plty_description.png");
+    }
+
+    .pick[title="spltdis"] {
+        background-image: url("./images/splt_description.png");
+    }
+
+    .pick[title="flkdis"] {
+        background-image: url("./images/flk_description.png");
+    }
+
+    /* hardness images*/
+
+    .pick[title="fridis"] {
+        background-image: url("./images/hardness/frihd.png");
+    }
+
+    .pick[title="plasdis"] {
+        background-image: url("./images/hardness/plahd.png");
+    }
+
+    .pick[title="sftdis"] {
+        background-image: url("./images/hardness/sfthd.png");
+    }
+
+    .pick[title="britdis"] {
+        background-image: url("./images/hardness/brithd.png");
+    }
+
+    .pick[title="frmdis"] {
+        background-image: url("./images/hardness/frmhd.png");
+    }
+
+    .pick[title="harddis"] {
+        background-image: url("./images/hardness/hdhd.png");
+    }
+
+    /* other images*/
+
+    .pick[title="rock"] {
+      background-image: url("https://svgshare.com/i/_8h.svg");
+    }
+    .pick[title="paper"] {
+      background-image: url('./images/Unconsolidated_Sandstone.png');
+    }
+    .pick[title="scissors"] {
+      background-image: url("https://svgshare.com/i/_9X.svg");
+    }
+
+
